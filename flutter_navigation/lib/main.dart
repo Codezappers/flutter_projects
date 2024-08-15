@@ -31,6 +31,59 @@ class HomePage extends StatelessWidget {
       backgroundColor: Colors.red,
       title: const Text('Home Page'),
     ),
+    body: /*
+    Center(
+      child: ElevatedButton(
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
+        child: const Text('Pop!'),
+      ),
+    ),
+    */
+    Container(
+      child: GridView.builder(gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        mainAxisExtent: 100,
+      ),
+      itemCount: 6,
+      itemBuilder: (BuildContext context, int index) {
+        return Container(
+          decoration: const BoxDecoration(
+            color: Colors.red,
+            ),
+            child: Text,
+        );
+      },
+      ),
+    ),
+    
+    drawer: Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          const DrawerHeader(
+            decoration: BoxDecoration(
+              color: Colors.blue,
+            ),
+            child: Text('Drawer Header'),
+          ),
+          ListTile(
+            title: const Text('Item 1'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            title: const Text('Item 2'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+        ],
+      ),
+    );
+
     bottomNavigationBar: BottomAppBar(
       color: Colors.blueGrey,
       child: Row(
@@ -66,7 +119,6 @@ class HomePage extends StatelessWidget {
         ],
 
       ),
-    ),
     );
   }
 }
